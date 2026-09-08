@@ -1,0 +1,11 @@
+dist/
+coverage/
+playwright-report/
+test-results/
+package-lock.json
+*.tsbuildinfo
+
+# Working notes, kept in whatever shape they are in
+NOTES.md
+SPEC.md
+DECISIONS.md

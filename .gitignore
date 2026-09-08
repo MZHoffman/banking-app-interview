@@ -1,0 +1,18 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+.env
+*.log
+.DS_Store
+
+# Local working files, not part of the delivered project
+NOTES.md
+
+# Local dev-server config, not part of the delivered project
+.claude/launch.json
+
+# Local reference material, not part of the delivered project
+docs/

@@ -1,0 +1,42 @@
+{
+  "name": "banking-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n server,client -c blue,cyan \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w server && npm run build -w client",
+    "test": "npm run test:run -w server && npm run test -w client && npm run db:reset",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:e2e": "playwright test && npm run db:reset",
+    "db:create": "tsx database/scripts/create.ts",
+    "db:migrate": "tsx database/scripts/migrate.ts",
+    "db:seed": "tsx database/scripts/seed.ts",
+    "db:reset": "tsx database/scripts/reset.ts",
+    "db:setup": "tsx database/scripts/setup.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^24.10.0",
+    "@types/pg": "^8.23.1",
+    "concurrently": "^10.0.5",
+    "eslint": "^10.9.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "pg": "^8.23.0",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.12",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.69.0"
+  }
+}
